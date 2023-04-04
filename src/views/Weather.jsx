@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap'
+import { Container, Row, Col, Form, Card } from 'react-bootstrap'
 import axios from 'axios'
 
 function Weather() {
@@ -58,6 +58,7 @@ function Weather() {
                       <Card.Text>Feels Like: {forecast.main.feels_like.toFixed()}°F</Card.Text>
                       <Card.Text>Humidity: {forecast.main.humidity}%</Card.Text>
                       <Card.Text>Wind Speed: {forecast.wind.speed.toFixed()} MPH</Card.Text>
+                      
                     </Card.Body>
                   </Card>
                 </Col>
