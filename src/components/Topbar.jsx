@@ -1,7 +1,7 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
 
 
-const NavBar = () => {
+const Topbar = () => {
   return (
     
 <section className='nav-container'>    
@@ -10,7 +10,7 @@ const NavBar = () => {
       <Navbar.Brand href="/weather">My Weather App</Navbar.Brand>
       <Nav className="me-auto">
         <Nav.Link href="/news">News</Nav.Link>
-        <Nav.Link href="/weather">Dashboard</Nav.Link>
+        <Nav.Link href="/">Dashboard</Nav.Link>
       </Nav>
     </Container>
   </Navbar>
@@ -19,4 +19,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default Topbar
