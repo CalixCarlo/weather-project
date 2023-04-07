@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Card } from 'react-bootstrap';
 import axios from 'axios';
 
 function Weather() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
+  const [sunriseSunset, setSunriseSunset] = useState({});
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`;
+  const sunriseSunsetUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`;
 
   const searchLocation = async (event) => {
     if (event.key === 'Enter') {
@@ -20,13 +22,50 @@ function Weather() {
     }
   };
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get(sunriseSunsetUrl);
+        setSunriseSunset(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    if (location) {
+      fetchData();
+    }
+  }, [location]);
+
   const getFiveDayForecast = () => {
     if (!data.list) return [];
     const forecasts = data.list.filter(forecast => {
       const date = new Date(forecast.dt_txt);
       return date.getHours() === 12 && date.getDate() > new Date().getDate();
     });
-    return forecasts.slice(0, 5);
+    
+    return forecasts.slice(0, 5).map(forecast => {
+      const { main, weather } = forecast;
+      let comment;
+  
+      if (weather[0].main === 'Clear') {
+        comment = weather[0].description.includes('few clouds') ? 'Mostly sunny today!' : "It's going to be a hot one today!";
+      } else if (weather[0].main === 'Clouds') {
+        comment = "Expect some clouds today.";
+      } else if (weather[0].main === 'Rain') {
+        comment = "Don't forget your umbrella today!";
+      } else if (weather[0].main === 'Snow') {
+        comment = "Bundle up! It's going to be a cold one.";
+      } else if (main.humidity >= 80) {
+        comment = "It's going to be humid today.";
+      } else if (main.temp < 50) {
+        comment = "It's going to be chilly today.";
+      } else {
+        comment = 'Enjoy your day!';
+      }
+  
+      return { ...forecast, comment };
+    });
   };
 
   return (
@@ -53,6 +92,21 @@ function Weather() {
                   {data.city.name}, {data.city.country}
                 </p>
               </div>
+              {sunriseSunset.sys && (
+                <div className="sunrise-sunset">
+                  <Card className="text-center">
+                    <Card.Body>
+                      <Card.Title>Sunrise & Sunset</Card.Title>
+                      <Card.Text>
+                        Sunrise: {new Date(sunriseSunset.sys.sunrise * 1000).toLocaleTimeString()}
+                      </Card.Text>
+                      <Card.Text>
+                        Sunset: {new Date(sunriseSunset.sys.sunset * 1000).toLocaleTimeString()}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
+              )}
             </div>
             <Row>
               {getFiveDayForecast().map((forecast, index) => (
@@ -82,6 +136,7 @@ function Weather() {
                       <Card.Text>
                         Wind Speed: {forecast.wind.speed.toFixed()} MPH
                       </Card.Text>
+                      <Card.Text>{forecast.comment}</Card.Text>
                     </Card.Body>
                   </Card>
                 </Col>

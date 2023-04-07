@@ -9,7 +9,7 @@ const Topbar = () => {
     <Container>
       <Navbar.Brand href="/weather">My Weather App</Navbar.Brand>
       <Nav className="me-auto">
-      <Nav.Link href="/">Dashboard</Nav.Link>
+      <Nav.Link href="/">Weather of the Week</Nav.Link>
       <Nav.Link href="/news">News</Nav.Link>
        
       </Nav>

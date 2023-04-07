@@ -3,10 +3,9 @@
 const News = () => {
   return (
     <div>
-      <p>asdq</p>
+      <p>Test</p>
     </div>
   )
 }
 
 export default News
-
