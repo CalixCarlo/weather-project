@@ -24,10 +24,13 @@ a:hover {
 }
 
 body {
+  background: #feac5e; /* background */ 
+  background: -webkit-linear-gradient(to right, #feac5e, #c779d0, #4bc0c8); 
+  background: linear-gradient(to right, #feac5e, #c779d0, #4bc0c8);
   margin: 0
 }
 
-h1 {
+h1 {  
   font-size: 3.2em;
   line-height: 1.1;
 }
@@ -51,10 +54,11 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #fae9e9;
   }
   a:hover {
     color: #747bff;

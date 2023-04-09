@@ -1,6 +1,7 @@
 
 import Weather from "./views/Weather"
 import News from "./views/News"
+import About from "./views/About"
 
 const routes = [
  
@@ -12,6 +13,10 @@ const routes = [
   {
     path: "/news",
     element: <News />
+  },
+  {
+    path: "/about",
+    element: <About />
   }
 ]
 

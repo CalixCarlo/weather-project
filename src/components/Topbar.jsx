@@ -8,10 +8,10 @@ const Topbar = () => {
   <Navbar bg="primary" variant="dark">
     <Container>
       <Navbar.Brand href="/weather">My Weather App</Navbar.Brand>
-      <Nav className="me-auto">
-      <Nav.Link href="/">Weather of the Week</Nav.Link>
+      <Nav className="me-flex-end">
+      <Nav.Link href="/">Search For Weather</Nav.Link>
       <Nav.Link href="/news">News</Nav.Link>
-       
+      <Nav.Link href="/about">About</Nav.Link>
       </Nav>
     </Container>
   </Navbar>
