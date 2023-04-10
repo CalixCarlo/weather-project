@@ -1,21 +1,21 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
+import { NavLink } from "react-router-dom"
 
 
 const Topbar = () => {
   return (
     
-<section className='nav-container'>    
-  <Navbar bg="primary" variant="dark">
-    <Container>
-      <Navbar.Brand href="/weather">My Weather App</Navbar.Brand>
-      <Nav className="me-flex-end">
-      <Nav.Link href="/">Search For Weather</Nav.Link>
-      <Nav.Link to="/news">News</Nav.Link>
-      <Nav.Link to="/about">About</Nav.Link>
-      </Nav>
-    </Container>
-  </Navbar>
-  </section>
+    <div className="navbar">
+    <div className="container">
+      <span className="logo">My Weather App</span>
+      <nav>
+        <NavLink to="/" end>Search for Weather</NavLink>
+        <NavLink to="/news" end>News</NavLink>
+        <NavLink to="/about" end>About</NavLink>
+  
+      </nav>
+    </div>
+  </div>
   
   )
 }

@@ -84,8 +84,6 @@ function Weather() {
             />
           </Form.Group>
         </Col>
-        <Col>
-        </Col>
       </Row>
       {data.list && (
         <Row className="container">
@@ -111,7 +109,6 @@ function Weather() {
                 </div>
               )}
             </div>
-            
             <Row>
               {getFiveDayForecast().map((forecast, index) => (
                 <Col key={index}>
@@ -120,7 +117,7 @@ function Weather() {
                       <Card.Title>
                         {new Date(forecast.dt_txt).toLocaleDateString()}
                       </Card.Title>
-                      <Card.Subtitle className="time m-2">
+                      <Card.Subtitle className="time mb-2 text-muted">
                         {new Date(forecast.dt_txt).toLocaleTimeString()}
                       </Card.Subtitle>
                       <Card.Text>
