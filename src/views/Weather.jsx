@@ -69,11 +69,11 @@ function Weather() {
   };
 
   return (
-    <Container fluid className="app">
+    <Container className="app">
       <Row className="search">
         <Col>
           <Form.Group controlId="locationInput">
-            <Form.Control
+            <Form.Control className="seacrh"
               value={location}
               onChange={(event) => setLocation(event.target.value)}
               onKeyPress={searchLocation}
