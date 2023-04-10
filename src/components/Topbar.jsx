@@ -1,13 +1,12 @@
-import { Navbar, Container, Nav } from 'react-bootstrap';
 import { NavLink } from "react-router-dom"
 
 
 const Topbar = () => {
   return (
     
-    <div className="navbar">
-    <div className="container">
-      <span className="logo">My Weather App</span>
+  
+    <div className="navbar-container">
+      <div className="logo">My Weather App</div>
       <nav>
         <NavLink to="/" end>Search for Weather</NavLink>
         <NavLink to="/news" end>News</NavLink>
@@ -15,7 +14,7 @@ const Topbar = () => {
   
       </nav>
     </div>
-  </div>
+
   
   )
 }

@@ -8,6 +8,7 @@ function Weather() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
   const [sunriseSunset, setSunriseSunset] = useState({});
+  const [lastSearchWeather, setLastSearchWeather] = useState({});
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`;
   const sunriseSunsetUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`;
@@ -17,6 +18,7 @@ function Weather() {
       try {
         const response = await axios.get(url);
         setData(response.data);
+        setLastSearchWeather(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -46,7 +48,7 @@ function Weather() {
       return date.getHours() === 12 && date.getDate() > new Date().getDate();
     });
     
-    return forecasts.slice(0, 5).map(forecast => {
+    return forecasts.slice(0, 6).map(forecast => {
       const { main, weather } = forecast;
       let comment;
   
@@ -84,6 +86,8 @@ function Weather() {
             />
           </Form.Group>
         </Col>
+        <Col>
+        </Col>
       </Row>
       {data.list && (
         <Row className="container">
@@ -109,6 +113,7 @@ function Weather() {
                 </div>
               )}
             </div>
+            
             <Row>
               {getFiveDayForecast().map((forecast, index) => (
                 <Col key={index}>
@@ -117,7 +122,7 @@ function Weather() {
                       <Card.Title>
                         {new Date(forecast.dt_txt).toLocaleDateString()}
                       </Card.Title>
-                      <Card.Subtitle className="time mb-2 text-muted">
+                      <Card.Subtitle className="time m-2">
                         {new Date(forecast.dt_txt).toLocaleTimeString()}
                       </Card.Subtitle>
                       <Card.Text>
