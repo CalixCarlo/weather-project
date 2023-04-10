@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Card } from 'react-bootstrap';
 import axios from 'axios';
+import sunrise from "../assets/sunrise.png"
+import sunset from "../assets/sunset.png"
 
 function Weather() {
   const [data, setData] = useState({});
@@ -82,6 +84,8 @@ function Weather() {
             />
           </Form.Group>
         </Col>
+        <Col>
+        </Col>
       </Row>
       {data.list && (
         <Row className="container">
@@ -94,29 +98,29 @@ function Weather() {
               </div>
               {sunriseSunset.sys && (
                 <div className="sunrise-sunset">
-                  <Card className="text-center">
-                    <Card.Body>
-                      <Card.Title>Sunrise & Sunset</Card.Title>
-                      <Card.Text>
-                        Sunrise: {new Date(sunriseSunset.sys.sunrise * 1000).toLocaleTimeString()}
-                      </Card.Text>
-                      <Card.Text>
-                        Sunset: {new Date(sunriseSunset.sys.sunset * 1000).toLocaleTimeString()}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
+                  <Row md={6}>
+                    <Col >
+                    <img src= {sunrise} className="me-3"/>
+                    Sunrise: {new Date(sunriseSunset.sys.sunrise * 1000).toLocaleTimeString()}
+                    </Col>
+                    <Col>
+                    <img src= {sunset} className="me-3"/>
+                    Sunset: {new Date(sunriseSunset.sys.sunset * 1000).toLocaleTimeString()}
+                    </Col>
+                  </Row>
                 </div>
               )}
             </div>
+            
             <Row>
               {getFiveDayForecast().map((forecast, index) => (
                 <Col key={index}>
-                  <Card className="text-center">
+                  <Card className="forecast text-center">
                     <Card.Body>
                       <Card.Title>
                         {new Date(forecast.dt_txt).toLocaleDateString()}
                       </Card.Title>
-                      <Card.Subtitle className="mb-2 text-muted">
+                      <Card.Subtitle className="time m-2">
                         {new Date(forecast.dt_txt).toLocaleTimeString()}
                       </Card.Subtitle>
                       <Card.Text>

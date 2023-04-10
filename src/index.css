@@ -17,6 +17,8 @@ body {
 
 p {
   font-size: 1 rem;
+  
+  
 }
 
 h1 {
@@ -59,41 +61,16 @@ h1 {
 
 ::placeholder {
   color:black;
+  
 }
 
 .container {
   max-width: 100vw;
-
   margin: auto;
-  padding: 0 1rem;
   position: relative;
- 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.app .top {
-  width: 100%;
-  margin: 1rem auto;
-}
-
-.app .description {
-  position: relative;
-  right: -90%;
-  transform-origin: 0 0;
-  transform: rotate(269deg);
-}
-
-.app .bottom {
-  display: flex;
-  justify-content: space-evenly;
-  text-align: center;
-  width: 100%;
-  margin: 1rem auto;
-  padding: 1rem;
-  border-radius: 12px;
-  background-color: rgba(255,255,255, 0.2);
 }
 
 .bold {
@@ -102,4 +79,29 @@ h1 {
 .card-body{
   padding: 2rem 2rem;
  
+}
+.myrow{
+  padding: 2rem 2rem;
+}
+.app{
+  background-image: url(./assets/bk.jpg);
+  background-size: cover;
+}
+.location{
+  font-size: larger;
+  color: white;
+}
+
+.sunrise-sunset{
+  color: white;
+  margin-bottom: 2rem;
+}
+.time{
+
+  color: whitesmoke;
+}
+
+.forecast{
+  background-color: rgba(71, 67, 67, 0.2);
+  color: whitesmoke;
 }
