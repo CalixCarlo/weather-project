@@ -1,7 +1,7 @@
 
 import Weather from "./views/Weather"
-import News from "./views/other/News"
-import About from "./views/other/About"
+import News from "./views/News"
+import About from "./views/About"
 
 const routes = [
  

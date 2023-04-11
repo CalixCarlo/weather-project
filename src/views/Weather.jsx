@@ -8,10 +8,20 @@ function Weather() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
   const [sunriseSunset, setSunriseSunset] = useState({});
-  const [lastSearchWeather, setLastSearchWeather] = useState({});
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
 
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`;
-  const sunriseSunsetUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`;
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString());
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []); 
+
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&appid=895284fb2d2c50a520ea537456963d9c`;
+  const sunriseSunsetUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=895284fb2d2c50a520ea537456963d9c`;
 
   const searchLocation = async (event) => {
     if (event.key === 'Enter') {
@@ -48,7 +58,7 @@ function Weather() {
       return date.getHours() === 12 && date.getDate() > new Date().getDate();
     });
     
-    return forecasts.slice(0, 4).map(forecast => {
+    return forecasts.slice(0, 5).map(forecast => {
       const { main, weather } = forecast;
       let comment;
   
@@ -97,10 +107,11 @@ function Weather() {
                 <p>
                   {data.city.name}, {data.city.country}
                 </p>
+                <p>{currentTime}</p>
               </div>
               {sunriseSunset.sys && (
                 <div className="sunrise-sunset">
-                  <Row md={6}>
+                  <Row md={2}>
                     <Col >
                     <img src= {sunrise} className="me-3"/>
                     Sunrise: {new Date(sunriseSunset.sys.sunrise * 1000).toLocaleTimeString()}
@@ -116,7 +127,7 @@ function Weather() {
             
             <Row>
               {getFiveDayForecast().map((forecast, index) => (
-                <Col md={2} key={index}>
+                <Col md={3} key={index}>
                   <Card className="forecast text-center">
                     <Card.Body>
                       <Card.Title>

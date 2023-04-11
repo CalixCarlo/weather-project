@@ -22,7 +22,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(./assets/bk.jpg);
+  background-image: url(./assets/bk.jpeg);
   background-size: cover;
 }
 
@@ -88,7 +88,6 @@ body {
   border-radius: 25px;
   color:var(--light);
 
-
 }
 
 ::placeholder {
@@ -99,10 +98,7 @@ body {
 .container {
   max-width: 100vw;
   margin: auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  
 }
 .container > h1 {
   color:var(--light);
@@ -137,4 +133,63 @@ body {
 .forecast{
   background-color: rgba(71, 67, 67, 0.2);
   color:var(--light);
+  margin-bottom: 2rem;
+}
+
+.top{
+  padding:1rem 1rem;
+  background-color:rgba(71, 67, 67, 0.2) ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 2rem;
+  flex-direction: column;
+  border-radius: 5px;
+ 
+ 
+}
+.sunrise-sunset > div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 25rem;
+  margin: auto;
+  padding: 1rem 1rem;
+
+  .row {
+   row-gap: 1rem;
+  }
+.banner{
+ width: 5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 }

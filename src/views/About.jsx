@@ -1,8 +1,18 @@
-import Accordion from 'react-bootstrap/Accordion';
+import {Accordion, Container, Row, Col} from 'react-bootstrap';
+import bk1 from "./assets/bk1.png"
+
 
 function About () {
   return (
-    <Accordion defaultActiveKey="0">
+    <Container className='py-5'>
+      <Row>
+      <Col md={6}>
+     <div className="banner">
+     <img src={bk1} />
+     </div>
+      </Col>
+      <Col md={6}>
+      <Accordion defaultActiveKey="0">
       <Accordion.Item eventKey="1" className=''>
         <Accordion.Header>What is My Weather App about?</Accordion.Header>
         <Accordion.Body>
@@ -49,7 +59,9 @@ function About () {
           longer—forecast is only right about half the time.
         </Accordion.Body>
       </Accordion.Item>
-    </Accordion>
+    </Accordion></Col>
+    </Row>
+    </Container>
     
   )
 }
