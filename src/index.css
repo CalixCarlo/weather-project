@@ -30,6 +30,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center
+  
 }
 
 .navbar-container {
@@ -37,15 +38,17 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  font-size: 20px;
 }
 
 .navbar-container nav {
   display: flex;
   gap: 1rem;
+ 
 }
 
 .navbar-container a {
-  color: var(--dark);
+  color: var(--primary);
   font-weight: bold;
   text-decoration: none;
   position: relative;
@@ -55,15 +58,33 @@ body {
   color: var(--light);
 }
 .logo {
-  color: var(--light);
+  color: #FEFF86;
   font-weight: bold;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #89375F 0%,
+    #BAD7E9 29%,
+    #EBB02D 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 25px;
+  
 }
 
 .app {
   width: 100%;
   height: 100vh;
   position: relative;
-  color:;
   padding: 2rem 2rem;
 }
 
@@ -137,4 +158,10 @@ body {
 .forecast{
   background-color: rgba(71, 67, 67, 0.2);
   color:var(--light);
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
