@@ -84,7 +84,7 @@ function Weather() {
 
   return (
     <Container className="app">
-      <Row className="search">
+      <Row className="search mb-5">
         <Col>
           <Form.Group controlId="locationInput">
             <Form.Control className="seacrh"
@@ -125,9 +125,9 @@ function Weather() {
               )}
             </div>
             
-            <Row>
+            <Row className='app-container gap-5'>
               {getFiveDayForecast().map((forecast, index) => (
-                <Col md={3} key={index}>
+                <Col md={2} key={index}>
                   <Card className="forecast text-center">
                     <Card.Body>
                       <Card.Title>
@@ -143,15 +143,15 @@ function Weather() {
                         />
                         {forecast.weather[0].description}
                       </Card.Text>
-                      <Card.Text>{forecast.main.temp.toFixed()}°F</Card.Text>
+                      <Card.Text>{forecast.main.temp.toFixed()}°C</Card.Text>
                       <Card.Text>
-                        Feels Like: {forecast.main.feels_like.toFixed()}°F
+                        Feels Like: {forecast.main.feels_like.toFixed()}°C
                       </Card.Text>
                       <Card.Text>
                         Humidity: {forecast.main.humidity}%
                       </Card.Text>
                       <Card.Text>
-                        Wind Speed: {forecast.wind.speed.toFixed()} MPH
+                        Wind Speed: {forecast.wind.speed.toFixed()} KPH
                       </Card.Text>
                       <Card.Text>{forecast.comment}</Card.Text>
                     </Card.Body>

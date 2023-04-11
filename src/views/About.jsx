@@ -4,11 +4,19 @@ import bk1 from "./assets/bk1.png"
 
 function About () {
   return (
-    <Container className='py-5'>
-      <Row>
+    <Container >
+      <Row className='about-container p-5'>
       <Col md={6}>
-     <div className="banner">
-     <img src={bk1} />
+     <div className='article'>
+     <article>Welcome to the About page for the 5days Weather App - the ultimate tool for staying on top of weather forecasts!
+
+Are you tired of constantly checking your local weather channel or website to plan your day? Look no further than the 5days Weather App, which offers reliable and accurate weather forecasts for the next five days, all in one convenient place.
+
+Our user-friendly interface makes it easy to navigate and understand weather data, including temperature, wind speed, humidity, and more. Plus, we provide real-time updates to ensure that you always have the latest information at your fingertips.
+
+But what sets the 5days Weather App apart from other weather apps is our commitment to personalized weather alerts. Simply set your preferences and we will send you notifications for severe weather conditions, such as thunderstorms, blizzards, or heat waves, so that you can stay safe and prepared.
+
+Don't let the weather catch you off guard - download the 5days Weather App today and stay one step ahead of the forecast!</article>
      </div>
       </Col>
       <Col md={6}>

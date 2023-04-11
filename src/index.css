@@ -24,6 +24,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url(./assets/bk.jpeg);
   background-size: cover;
+  
 }
 
 .navbar {
@@ -48,7 +49,7 @@ body {
 }
 
 .navbar-container a {
-  color: var(--primary);
+  color: var(--secondary);
   font-weight: bold;
   text-decoration: none;
   position: relative;
@@ -58,15 +59,15 @@ body {
   color: var(--light);
 }
 .logo {
-  color: #FEFF86;
+  color:var(--dark);
   font-weight: bold;
   text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
-    #89375F 0%,
+   
     #BAD7E9 29%,
     #EBB02D 67%,
-    #fff800 100%
+    var(--dark) 100%
   );
   background-size: auto auto;
   background-clip: border-box;
@@ -122,7 +123,7 @@ body {
   
 }
 .container > h1 {
-  color:var(--light);
+  color:var(--dark);
  
 }
 
@@ -167,8 +168,6 @@ body {
   margin-bottom: 2rem;
   flex-direction: column;
   border-radius: 5px;
- 
- 
 }
 .sunrise-sunset > div{
   display: flex;
@@ -177,46 +176,23 @@ body {
   max-width: 25rem;
   margin: auto;
   padding: 1rem 1rem;
-
-  .row {
-   row-gap: 1rem;
-  }
-.banner{
- width: 5rem;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 }
 
 @keyframes textclip {
   to {
     background-position: 200% center;
   }
+}
+
+.about-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+}
+.article{
+  background-color:rgba(71, 16, 16, 0.2) ;
+  padding: 2rem;
+  border-radius: 5px;
+  color: var(--light);
 }
