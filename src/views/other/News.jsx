@@ -18,9 +18,9 @@ function News() {
       const options = {
         method: 'GET',
         url: 'https://weather338.p.rapidapi.com/news/list',
-        params: { offset: '0', limit: '10' },
+        params: {offset: '0', limit: '10'},
         headers: {
-          'X-RapidAPI-Key': '0e2f2cd9d2msh175bdbccf9705dfp197939jsna8bec3aacf57',
+          'X-RapidAPI-Key': '6140437819mshde10e4c24a2ee67p1245bbjsn02dc65e4c22b',
           'X-RapidAPI-Host': 'weather338.p.rapidapi.com'
         }
       };
@@ -29,7 +29,11 @@ function News() {
         const response = await axios.request(options);
         setNews(response.data);
       } catch (error) {
-        console.error(error);
+        if (error.response && error.response.status === 429) {
+          console.error('Too many requests. Please try again later.');
+        } else {
+          console.error('Failed to fetch news.', error);
+        }
       }
     };
 
@@ -39,7 +43,7 @@ function News() {
   return (
     <Container>
       <h1 className="text-center my-5">Latest News</h1>
-      <Row xs={1} md={2} className="myrow g-4">
+      <Row xs={1} md={2} className="myrow g-4 my-2 mx-2">
         {news.map((item) => (
           <Col key={item.id}>
             <Card>

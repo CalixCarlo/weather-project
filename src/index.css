@@ -24,8 +24,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url(./assets/bk.jpg);
   background-size: cover;
- 
-  
 }
 
 .navbar {
@@ -47,14 +45,14 @@ body {
 }
 
 .navbar-container a {
-  color: var(--primary);
+  color: var(--dark);
   font-weight: bold;
   text-decoration: none;
   position: relative;
 }
 
 .navbar-container a.active {
-  color: var(--dark);
+  color: var(--light);
 }
 .logo {
   color: var(--light);
@@ -89,12 +87,12 @@ body {
   font-size: 1.2rem;
   border-radius: 25px;
   color:var(--light);
-  background: rgba(255,255,255, 0.1);
-  color:var(--light);
+
+
 }
 
 ::placeholder {
-  color:var(--light);
+  color:var(--dark);
   
 }
 

@@ -48,7 +48,7 @@ function Weather() {
       return date.getHours() === 12 && date.getDate() > new Date().getDate();
     });
     
-    return forecasts.slice(0, 6).map(forecast => {
+    return forecasts.slice(0, 4).map(forecast => {
       const { main, weather } = forecast;
       let comment;
   
@@ -81,7 +81,7 @@ function Weather() {
               value={location}
               onChange={(event) => setLocation(event.target.value)}
               onKeyPress={searchLocation}
-              placeholder="Enter Location"
+              placeholder="Search City"
               type="text"
             />
           </Form.Group>
@@ -116,7 +116,7 @@ function Weather() {
             
             <Row>
               {getFiveDayForecast().map((forecast, index) => (
-                <Col key={index}>
+                <Col md={2} key={index}>
                   <Card className="forecast text-center">
                     <Card.Body>
                       <Card.Title>
